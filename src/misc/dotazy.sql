@@ -210,3 +210,17 @@ JOIN (
    ON pa.playerId = prev.playerId AND pa.myWeek = prev.myWeek + 1
 GROUP BY myWeek
 ORDER BY pa.date DESC;
+
+-- postup hracu levely
+SELECT p.id, c.name, p.name
+   , MAX(level) AS lastLevel
+   , MAX(level) - MIN(level) AS postup
+FROM PlayerAttribute AS pa
+JOIN Player AS p
+   ON p.id = pa.playerId
+JOIN Club AS c
+   ON c.id = pa.clubId
+WHERE DATEDIFF(date, CURDATE()) < 35
+GROUP BY playerId
+HAVING postup >= 5
+ORDER BY postup DESC, lastLevel DESC
