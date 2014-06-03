@@ -1,0 +1,13 @@
+php_value display_errors On
+php_flag magic_quotes 1
+php_flag magic_quotes_gpc 1
+php_value mbstring.http_input auto
+php_value date.timezone Europe/Prague
+
+#-- bez extension, zakaz prohlizeni adresaru, error 404
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+IndexIgnore *
+ErrorDocument 404 /filenotfound.php

@@ -1,0 +1,130 @@
+@CHARSET "UTF-8";
+
+#menu {
+    width: 600px;
+    height: 37px;
+    font-size: 16px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 1px #333333;
+    background-color: rgb(128,255,128);
+        border-radius: 3px;
+    margin: 20px;
+}
+
+#menu ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+#menu li {
+display: inline;
+padding: 15px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: rgb(0, 128, 0);
+    padding: 8px 8px 8px 8px;
+}
+
+#menu a:hover {
+    color: rgb(255,255,0);
+    background-color: rgb(198,255,198);
+}
+
+
+input {
+	margin: 10px;
+	height: 50px;
+	width: 90px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.login {
+  top: 20%;
+  left:25%;
+}
+
+.loginElement {
+   margin: 10px;
+   height: 50px;
+   width: 150px;
+   text-align: center;
+   font-size: 18px;
+}
+
+
+.title {
+	color: #0066CC;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.upperIndex {
+	vertical-align: super;
+	font-size: x-small;
+}
+
+.prestige,.matches,.money, .attributes, .level {
+	text-align: right;
+}
+
+.playerAttributesTable td {
+   padding: 3px;	
+}
+
+.playerAttributesTable th {
+   padding: 3px;	
+}
+
+td{
+   padding: 3px;	
+}
+
+.class3minus{
+   background-color: rgb(255, 50, 50);
+   padding:  2px;	
+}
+.class2minus{
+   background-color: rgb(255, 150, 150);
+   padding:  2px;	
+}
+.class1minus{
+   background-color: rgb(255, 215, 215);
+   padding:  2px;	
+}
+.class0{
+	background-color: rgb(245, 255, 245);
+   padding:  2px;
+}
+.class1plus{
+   background-color: rgb(215, 255, 215);
+   padding:  2px; 
+}
+.class2plus{
+   background-color: rgb(150, 255, 150);
+   padding:  2px; 
+}
+.class3plus{
+   background-color: rgb(50, 255, 50);
+   padding:  2px; 
+}
+
+.clubPrestige{
+   margin:20px;
+}
+
+.dayPrestige{
+   background-color: rgb(102,204,255);
+	font-size: 9px;
+   border:1px solid black;
+   margin:8px;
+}
+
+.oddDay{
+   background-color: rgb(0,160,255);
+}
