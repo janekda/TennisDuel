@@ -3,6 +3,17 @@ FROM PlayerAttribute
 WHERE playerId=70
 ORDER BY DATE DESC;
 
+-- KM , klubové mistrovství v našem klubu
+SELECT p.name
+  , MAX(level) as maxLevel
+  , MAX(clubMatch)- MIN(clubMatch) AS matches
+FROM PlayerAttribute AS pa
+JOIN Player AS p ON p.id = pa.playerId
+WHERE pa.clubId = 336 AND pa.date> "2014-09-28"
+GROUP BY playerId
+ORDER BY matches DESC;
+
+
 -- vypis hracu z klubu
 SELECT playerId, p.name AS playerName, MAX(level) AS currentLevel
   , MAX(level)-MIN(level) as levelMove, WEEK(`date`, 1) AS playerWeek
