@@ -43,7 +43,7 @@
    $WEEK_PRESTIGE_BY_DAY .= "GROUP BY myDate ";
    $WEEK_PRESTIGE_BY_DAY .= "ORDER BY pa.date DESC; ";
 
-   $PLAYERS_BASIC_SQL = "SELECT playerId, p.name AS playerName, MAX(level) AS currentLevel, MAX(level)-MIN(level) as levelMove, WEEK(`date`, 1) AS playerWeek, DATE_FORMAT(MIN(`date`), '%d.%m %H:%i') AS start, MAX(prestige) - MIN(prestige) AS weekPrestige";
+   $PLAYERS_BASIC_SQL = "SELECT playerId, p.name AS playerName, MAX(level) AS currentLevel, MAX(level)-MIN(level) as levelMove, WEEK(pa.date, 1) AS playerWeek, DATE_FORMAT(MIN(pa.date), '%d.%m %H:%i') AS start, MAX(prestige) - MIN(prestige) AS weekPrestige";
    $PLAYERS_BASIC_SQL .= ", MAX(tournament) - MIN(tournament) AS weekTournament";
    $PLAYERS_BASIC_SQL .= ", MAX(wonMatch) - MIN(wonMatch) AS weekWonMatches";
    $PLAYERS_BASIC_SQL .= ", FORMAT((SELECT pa2.wonMoney FROM PlayerAttribute AS pa2 WHERE pa2.date=MAX(pa.date) AND pa2.playerId = pa.playerId)/1000, 1) AS wonMoney";
@@ -57,7 +57,7 @@
    $PLAYERS_BASIC_SQL .= " FROM PlayerAttribute AS pa";
    $PLAYERS_BASIC_SQL .= " JOIN Player AS p ON p.id = pa.playerId";
    $PLAYERS_BASIC_SQL .= " WHERE pa.clubId = 336 ";
-   $PLAYERS_BASIC_SQL .= " AND DATEDIFF(DATE_ADD(CURDATE(), INTERVAL -1 DAY), `date`) <= 8 AND DATEDIFF(CURDATE(), `date`)>0 ";
+   $PLAYERS_BASIC_SQL .= " AND DATEDIFF(DATE_ADD(CURDATE(), INTERVAL -1 DAY), pa.date) <= 8 AND DATEDIFF(CURDATE(), pa.date)>0 ";
    $PLAYERS_BASIC_SQL .= " GROUP BY playerId";
    $PLAYERS_BASIC_SQL .= " ORDER BY currentLevel DESC, weekPrestige DESC";
 
@@ -134,7 +134,7 @@
    $MAX_EARNING = "SELECT abbr, Player.name AS playerName, FORMAT(wonMoney/1000,1) AS wonMoneyFormatted FROM PlayerAttribute AS pa ";
    $MAX_EARNING .= "JOIN Player ON Player.id = pa.playerId ";
    $MAX_EARNING .= "JOIN Club ON Club.id = pa.clubId ";
-   $MAX_EARNING .= "WHERE DATEDIFF(date, (SELECT MAX(date) FROM PlayerAttribute WHERE clubId=46))=0 ";
+   $MAX_EARNING .= "WHERE DATEDIFF(pa.date, (SELECT MAX(pa.date) FROM PlayerAttribute WHERE clubId=46))=0 ";
    $MAX_EARNING .= "ORDER BY wonMoney DESC LIMIT 20";
 
    $result = mysql_query($MAX_EARNING);

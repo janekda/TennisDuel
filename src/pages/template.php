@@ -18,6 +18,7 @@
          <li><a href="/pages/clubsRules">Pravidla</a></li>
          <li><a href="/pages/souperi">Soupeři</a></li>
          <li><a href="/pages/clubsHistory.html">Historie</a></li>
+         <li><a href="/pages/allPLayerStats">Stats hráčů</a></li>
          <li><a href="/pages/playerStats?<?=$loggedUserId?>">Moje Stats</a></li>
          <li><a href="/pages/sessionEnd">Logout</a></li>
       </ul>
